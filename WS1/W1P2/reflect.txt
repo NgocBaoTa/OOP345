@@ -1,0 +1,22 @@
+/*/////////////////////////////////////////////////////////////////////////
+						  Workshop - #1 (Reflection)
+Full Name  : Bao Ngoc Ta
+Student ID#: 116038225
+Email      : bta@myseneca.ca
+Date	   : 14/09/2023
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/
+
+
+- I had a trouble with External Linkage because this is the first time I work
+with it. I just put the declaration in header file and use it in main file, 
+then I get an error about it. After reviewing the material, I also put the 
+definition in .cpp file so there was no this error anymore.
+
+- In part 2, at first I forgot the deconstructor so I got error about memory
+leak but it went well after I added it.
+
+- I also put some guards for my code and I review more about scopes, 
+linkages, namespaces, pointers, string type,...

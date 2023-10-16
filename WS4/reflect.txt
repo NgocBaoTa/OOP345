@@ -1,0 +1,54 @@
+/*/////////////////////////////////////////////////////////////////////////
+						  Reflection - #4 
+Full Name  : Bao Ngoc Ta
+Student ID#: 116038225
+Email      : bta@myseneca.ca
+Date	   : 07/10/2023
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/  
+
+- Composition and Aggregation:
+In this workshop, I implemented two classes, CheeseShop and CheeseParty, 
+both of them have an attribute of type const Cheese**. However, they represent 
+different relationships with the Cheese class:
+    Composition: In CheeseShop module, the Cheese objects are owned by the 
+CheeseShop. It means that when a CheeseShop object is created, it manages its 
+Cheese objects' memory, and has responsibility in Cheese objects' lifetume. 
+When the CheeseShop is destroyed, it also destroys the Cheese objects it contains.
+    Aggregation: In CheeseParty module, it contains pointers to Cheese objects, 
+but it doesn't control the lifetime of the Cheese objects. Cheese objects exist 
+independently of CheeseParty, and CheeseParty can reference them without managing 
+their memory.
+
+- Move and Copy Functions: I implemented move constructors, move assignment 
+operators, copy constructors, and copy assignment operators for both composition 
+and aggregation cases. But there is some differences:
+    Composition: The ownership of the resources is more tightly coupled, so move 
+operations involve transferring ownership of the entire resource.
+    Aggregation: Move and copy operations might involve copying or moving the 
+pointers rather than the actual resources. This is because the aggregation classes 
+don't own the objects they reference, so the objects' lifetime is managed outside 
+the aggregation class.
+
+- There are differeces between addCheese function implementation in CheeseShop and 
+CheeseParty because of their different relationships with Cheese:
+    In CheeseShop, addCheese adds a new Cheese object by creating a copy. This is 
+because CheeseShop owns its Cheese objects, and it's responsible for their memory 
+management. The addCheese function needs to allocate memory for the new Cheese 
+object and copy the data into it.
+    In CheeseParty, addCheese adds a reference to an existing Cheese object, assuming 
+that the client code manages the lifetime of Cheese objects. CheeseParty doesn't create 
+copies, it just stores references to Cheese objects.
+
+- removeCheese Function:
+In CheeseShop mocule, I first iterated through the Cheese objects it owns and check 
+their weights. If a Cheese object has a weight of 0, it should be removed.
+Pseudocode: Create a new array to store valid cheeses => Iterate through the existing 
+cheeses => if the cheese is valid then adding it to the new array => Deallocate the old 
+array => Update with the valid cheeses array
+And, I would need to adjust the destructor to ensure that the memory allocated for the 
+Cheese objects is properly deallocated.
+
+

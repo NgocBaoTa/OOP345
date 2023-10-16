@@ -1,0 +1,54 @@
+/*/////////////////////////////////////////////////////////////////////////
+						  Reflection - #5
+Full Name  : Bao Ngoc Ta
+Student ID#: 116038225
+Email      : bta@myseneca.ca
+Date	   : 13/10/2023
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/  
+
+
+
+- Functors and Lambda Expressions:
+        + A functor is a class or struct that overloads the function call 
+operator operator(). It can maintain state between calls and is suitable for 
+more complex operations.
+        + Lambda expressions provide a concise way to define anonymous 
+functions. They are often used for short, simple operations and don't maintain 
+state between calls.
+        + The choice between functors and lambda expressions depends on the 
+complexity of the operation. Use functors when you need to maintain state or 
+have more complex behavior. Lambda expressions are suitable for short, one-off 
+functions.
+
+- Handling Exceptions in SpellChecker:
+	+ In the original implementation, the SpellChecker constructor generates 
+an exception when it cannot open a file:   throw "Bad file name!";  // code
+	+ Another approach: creating a new function to read the file that returns 
+a bool. If it returns true, the file was successfully loaded, and if it returns 
+false, there was an error.
+	+ Compare: Exceptions are generally recommended for more complex and
+structured projects, as they provide a cleaner and more organized way to handle 
+errors. But avoiding exceptions can lead to better performance in scenarios where 
+exceptions are thrown frequently or it's just a small program because error handling 
+without exceptions often provides limited information about the error, which can 
+make debugging more challenging.
+
+- Reducing Redundancy in Movie and Book:The Movie and Book classes have almost 
+identical logic for loading data from a file. To reduce redundancy, I might create 
+a base class with the shared functionality for loading data. And then derive Movie 
+and Book to inherit this shared behavior.
+
+- Default and Customer Constructor in Movie and Book module:
+I think we still need to keep the default constructor because: 
+	+ A default constructor can provide flexibility by allowing objects to be 
+created without immediate initialization.
+	+ In cases where not all members of the class need to be initialized during 
+object creation, a default constructor can set default values for uninitialized 
+members.
+=> If objects of these classes should always be properly initialized, removing the 
+default constructor can lead to more maintainable code. However, if there are valid 
+scenarios where an object should exist in an uninitialized state, keeping the default 
+constructor might be better.

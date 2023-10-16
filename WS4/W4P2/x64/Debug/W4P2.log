@@ -1,0 +1,13 @@
+﻿  Cheese.cpp
+C:\Users\baong\source\repos\SEM 3\OOP345\WS4\W4P2\Cheese.cpp(24,19): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\baong\source\repos\SEM 3\OOP345\WS4\W4P2\Cheese.cpp(32,21): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\baong\source\repos\SEM 3\OOP345\WS4\W4P2\Cheese.cpp(41,22): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\baong\source\repos\SEM 3\OOP345\WS4\W4P2\Cheese.cpp(52,24): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\baong\source\repos\SEM 3\OOP345\WS4\W4P2\Cheese.cpp(89,16): warning C4267: '-=': conversion from 'size_t' to 'unsigned int', possible loss of data
+  CheeseParty.cpp
+C:\Users\baong\source\repos\SEM 3\OOP345\WS4\W4P2\CheeseParty.cpp(75,13): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  CheeseShop.cpp
+  w4_p2.cpp
+  Generating Code...
+C:\Users\baong\source\repos\SEM 3\OOP345\WS4\W4P2\CheeseParty.cpp(207): warning C4715: 'sdds::CheeseParty::operator=': not all control paths return a value
+  W4P2.vcxproj -> C:\Users\baong\source\repos\SEM 3\OOP345\WS4\W4P2\x64\Debug\W4P2.exe

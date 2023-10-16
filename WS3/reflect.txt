@@ -1,0 +1,63 @@
+/*/////////////////////////////////////////////////////////////////////////
+						  Reflection - #3 
+Full Name  : Bao Ngoc Ta
+Student ID#: 116038225
+Email      : bta@myseneca.ca
+Date	   : 30/09/2023
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/    
+
+1. - Why the definitions and implementations in this case should be included 
+in header file? 
+Because we have templates in these modules and templates are not compiled 
+until they are instantiated with specific types. The compiler needs access 
+to the template's full definition (both declaration and implementation) to 
+generate the specialized code for the specific types you use during instantiation.
+- Are there ways to work around and include implementation in .cpp files?
+I think we can explicitly instantiate the template for specific types in .cpp 
+file. This involves specifying the types we want to use with the template and 
+then including the template's implementation in the .cpp file. But it can lead 
+to code bloat if you explicitly instantiate the template for many different 
+types, and we need to manually list all the types you want to use, which can 
+be error-prone.
+
+2.Explain why it was necessary for you to add the members that you added into 
+the Book class.
+The added members and member functions in the Book class are necessary to represent, 
+initialize, and display book information. They align with the requirements of the 
+project, which involve managing Book-type objects within the Collection and 
+OrderedCollection modules and printing them in a specific format.
+
+3. 
+T getSmallestItem(): returns the current smallest item stored in the class attribute.
+T getLargestItem(): returns the current largest item stored in the class attribute.
+Explain why these functions cannot be querries, even though they do not change value.
+
+While getSmallestItem() and getLargestItem() do not change the internal state of the 
+Collection class, they involve retrieving and returning data stored within the class. 
+These functions are considered queries because they provide access to information 
+about the collection's state, even though they don't modify it.
+
+4.Discuss if we can make this function a query or not.
+The operator[] function in the OrderedCollection class can be a query. It provides 
+read-only access to elements in the collection and does not modify the internal 
+state of the collection.
+
+5. - What is the reason for defining the class objects outside the class definition?
+	By defining these objects outside the class definition, you can specialize 
+them for specific template arguments (e.g., T = Book and C = 10) in a way that would 
+not be possible if they were directly defined as static members within the class. 
+    - What is the reason for specializing the definition of m_smallestItem and 
+m_largestItem objects for Book and 10?
+	Specializing the definition of m_smallestItem and m_largestItem objects for 
+T = Book and C = 10 is a way to provide default values or behaviors for these objects 
+=> handle specific cases where it makes sense to have predefined values or behaviors 
+based on the template arguments, ensuring that the objects are correctly initialized 
+for specific scenarios.
+    - m_smallestItem and m_largestItem objects are also initialized for Book and 72. 
+Is this initilization necessary? Why?
+	I think it's necessary because initializing m_smallestItem and m_largestItem 
+objects for T = Book and C = 72 follows a similar logic as the specialization for 
+T = Book and C = 10.

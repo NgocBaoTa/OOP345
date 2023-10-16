@@ -1,0 +1,40 @@
+/*/////////////////////////////////////////////////////////////////////////
+						  Reflection - #2 (P2)
+Full Name  : Bao Ngoc Ta
+Student ID#: 116038225
+Email      : bta@myseneca.ca
+Date	   : 23/09/2023
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/    
+
+I got a lot of problems in this workshop about rule of five and memory leak 
+again. Here are something that I found I need to learn more after this workshop.
+
+- Rule of 5:
+	+ Destructor
+	+ Copy Constructor
+	+ Copy Assignment Operator
+	+ Move Constructor
+	+ Move Assignment Operator
+I have ever done some workshop with rule of 3 but move constructor and move 
+assignment operator are quite new to me and it took me some time to get familiar 
+with them.
+
+- Reading Input File:
+	At first, I just count the number of airports and again to populate the 
+dynamic array. Although this approach works, it involves reading the file twice 
+so it may not be efficient for large files. After that, I tried to use seakg 
+function to reset the file pointer to the beginning of the file after you have 
+counted the number of airports in the file so it would avoid reread the file.
+
+- std::chrono library:
+    The use of std::chrono to measure time was an important concept. 
+    The difference between steady_clock and system_clock is in their behavior 
+when the system time is adjusted. 
+	+ steady_clock is not affected by system time changes and is suitable 
+for measuring intervals or durations. 
+	+ system_clock can be adjusted due to changes in the system time, making 
+it suitable for measuring real-world timestamps.
+

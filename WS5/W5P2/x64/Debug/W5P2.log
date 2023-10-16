@@ -1,0 +1,6 @@
+﻿  w5_p2.cpp
+C:\Users\baong\source\repos\SEM 3\OOP345\WS5\W5P2\Collection.h(82,61): error C2039: 'to_string': is not a member of 'std'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\functional(33,1): message : see declaration of 'std'
+C:\Users\baong\source\repos\SEM 3\OOP345\WS5\W5P2\Collection.h(97,6): message : see reference to class template instantiation 'sdds::Collection<T>' being compiled
+C:\Users\baong\source\repos\SEM 3\OOP345\WS5\W5P2\Collection.h(82,105): error C2039: 'to_string': is not a member of 'std'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\functional(33,1): message : see declaration of 'std'
