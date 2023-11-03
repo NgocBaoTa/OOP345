@@ -1,3 +1,15 @@
+/*/////////////////////////////////////////////////////////////////////////
+						  Workshop - #6 (P1)
+Full Name  : Bao Ngoc Ta
+Student ID#: 116038225
+Email      : bta@myseneca.ca
+Date	   : 03/11/2023
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/
+
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <iomanip>
 #include <string>
@@ -6,12 +18,12 @@
 using namespace std;
 
 namespace sdds {
-		sdds::Directory::Directory(const std::string& name)
+	Directory::Directory(const std::string& name)
 	{
 		m_name = name;
 	}
 
-	void sdds::Directory::update_parent_path(const std::string& path)
+	void Directory::update_parent_path(const std::string& path)
 	{
 		m_parent_path = path;
 		for (auto item : m_contents)
@@ -93,3 +105,9 @@ namespace sdds {
 			delete item;
 	}
 }
+
+
+
+
+
+
