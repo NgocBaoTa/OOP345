@@ -6,26 +6,27 @@
 using namespace std;
 
 namespace sdds {
-	Directory::Directory(const std::string& name) : m_name(name) {};
+		sdds::Directory::Directory(const std::string& name)
+	{
+		m_name = name;
+	}
 
-	void Directory::update_parent_path(const std::string& path) {
-		m_parentPath = path;
-		for (Resource* res : m_contents) {
-			if (res) {
-				res->update_parent_path(Directory::path());
-			}
+	void sdds::Directory::update_parent_path(const std::string& path)
+	{
+		m_parent_path = path;
+		for (auto item : m_contents)
+		{
+			item->update_parent_path(path + m_name);
 		}
+	}
+
+	std::string Directory::path() const
+	{
+		return m_parent_path + m_name;
 	}
 
 	NodeType Directory::type() const {
 		return NodeType::DIR;
-	}
-
-	std::string Directory::path() const {
-		if (m_name.empty()) {
-			return m_parentPath;
-		}
-		return m_parentPath + '/' + m_name;
 	}
 
 	std::string Directory::name() const {
@@ -33,7 +34,7 @@ namespace sdds {
 	}
 
 	int Directory::count() const {
-		return static_cast<int>(m_contents.size());;
+		return (int)m_contents.size();
 	}
 
 	size_t Directory::size() const {
@@ -54,10 +55,11 @@ namespace sdds {
 				}
 			}
 		}
-		resource->update_parent_path(path());
 		m_contents.push_back(resource);
+		resource->update_parent_path(m_parent_path + m_name);
 		return *this;
 	}
+
 
 	Resource* Directory::find(const std::string& resourceName, const std::vector<OpFlags>& flags) {
 		// Check if the RECURSIVE flag is set
@@ -85,9 +87,9 @@ namespace sdds {
 		return nullptr; // Resource not found
 	}
 
+
 	Directory::~Directory() {
-		for (Resource* resource : m_contents) {
-			delete resource;
-		}
+		for (auto item : m_contents)
+			delete item;
 	}
 }

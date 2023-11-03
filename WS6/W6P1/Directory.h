@@ -10,9 +10,7 @@
 namespace sdds
 {
     class Directory : public Resource {
-        std::string m_name{""};
         std::vector<Resource*> m_contents;
-        std::string m_parentPath{""};
     public:
         Directory(const std::string& name);
         void update_parent_path(const std::string&);
@@ -32,3 +30,4 @@ namespace sdds
 }
 
 #endif
+

@@ -18,10 +18,7 @@ namespace sdds {
 	}
 
 	std::string File::path() const {
-		if (m_name.empty()) {
-			return m_parentPath;
-		}
-		return m_parentPath + '/' + m_name;
+		return m_parentPath + m_name;
 	}
 
 	std::string File::name() const {
