@@ -1,0 +1,91 @@
+/*/////////////////////////////////////////////////////////////////////////
+						  Reflection - #8 
+Full Name  : Bao Ngoc Ta
+Student ID#: 116038225
+Email      : bta@myseneca.ca
+Date	   : 11/18/2023
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/  
+
+
+---------------------------------------------------------------------------------------
+-------- Smart Pointer Syntax Advantage:
+---------------------------------------------------------------------------------------
+
+The use of smart pointers (std::unique_ptr) provides automatic 
+memory management and helps prevent memory leaks. For example, in the excludeRaw 
+function, when creating a new Profile object dynamically, I used std::unique_ptr 
+to manage the memory allocation:
+
+std::unique_ptr<Profile> pf(new Profile(allProfiles[i].m_name, allProfiles[i].m_address, allProfiles[i].m_age));
+result += pf; // Using std::unique_ptr in the += operator of DataBase
+
+By using std::unique_ptr, the responsibility for deallocating memory is transferred 
+to the smart pointer, ensuring that the dynamically allocated memory is freed when 
+the std::unique_ptr goes out of scope even there is an error. This reduces the 
+chance of memory leaks compared to manually managing memory with raw pointers.
+
+
+
+---------------------------------------------------------------------------------------
+-------- Raw vs. Smart Pointer Syntax:
+---------------------------------------------------------------------------------------
+
+The key difference between raw and smart pointer syntax is in memory management. 
+Raw pointers require manual memory management, including explicit calls to new and 
+delete. However, smart pointers automatically handle memory allocation and deallocation, 
+reducing the risk of memory leaks and improving code safety (as I showed above).
+
+Also in the DataBase class, the operator+= is overloaded to accept a raw pointer and 
+adds a copy of the pointed-to object to the database:
+
+	void operator+=(const T* item) {}
+
+In contrast, the smart pointer version, I used std::unique_ptr, look like:
+
+	void operator+=(const std::unique_ptr<T>& item) {}
+
+
+
+---------------------------------------------------------------------------------------
+-------- Excessive Object Duplications:
+---------------------------------------------------------------------------------------
+
+If we exclude profiles using raw pointers, there is an issue of excessive object 
+duplications. I think this occurs because the DataBase class does not explicitly 
+provide a copy/move constructor, leading to unnecessary object copies during vector 
+operations like resizing.
+
+To reduce the number of copies, I think the DataBase class could explicitly define 
+a move constructor and move assignment operator:
+
+	DataBase(DataBase&& other) noexcept : database(std::move(other.database)) {}
+
+	DataBase& operator=(DataBase&& other) noexcept {
+    		if (this != &other) {
+        		database = std::move(other.database);
+    		}
+    		return *this;
+	}
+
+So, when objects are moved within the database vector, the move constructor is invoked 
+instead of creating copies, and it might reduce unnecessary duplications.
+
+
+
+
+---------------------------------------------------------------------------------------
+-------- std::move:
+---------------------------------------------------------------------------------------
+
+If objects are added into the Database using std::move, it would invoke the move 
+constructor or move assignment operator of the Profile class. But because Profile 
+does not have an explicit move constructor, the compiler-generated move constructor 
+will be used. So we still can do like: 
+
+	result += std::move(newProfile);
+
+But I personally think that defining a move constructor can provide more control and 
+optimization opportunities.
